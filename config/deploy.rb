@@ -4,7 +4,7 @@ set :application, "massiveapp"
 # END:require_and_application
 # START:scm
 set :scm, :git
-set :repository, "."
+set :repository, "git://github.com/deployingrails/massiveapp.git"
 # END:scm
 # START:host
 server "localhost", :app, :db, :primary => true
@@ -33,3 +33,5 @@ namespace :deploy do
   end
 end
 # END:passenger
+
+after "deploy:symlink", "deploy:copy_in_database_yml"
