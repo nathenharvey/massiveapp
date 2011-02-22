@@ -2,7 +2,7 @@ namespace :nagios do
   desc "Nagios monitor for recent accounts"
   task :accounts => :environment do
     recent = Account.where("created_at > '#{1.day.ago}'").count
-    msg, exit_code = if recent > 80
+    msg, exit_code = if recent > 90
       ["CRITICAL", 2]
     elsif recent > 50
       ["WARNING", 1]
