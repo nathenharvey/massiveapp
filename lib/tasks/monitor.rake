@@ -9,7 +9,7 @@ namespace :nagios do
     else
       ["OK", 0]
     end
-    print "ACCOUNTS #{msg} - #{recent} accounts created in the past day"
+    puts "ACCOUNTS #{msg} - #{recent} accounts created in the past day"
     exit exit_code
   end
 end
