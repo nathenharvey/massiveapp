@@ -36,4 +36,17 @@ end
 
 after "deploy:symlink", "deploy:copy_in_database_yml"
 
-role :util, "localhost"
+#require 'yaml' 
+#role(:redis) { YAML.load(File.read("config/servers.yml"))["servers"]["redis"] }
+#task :rewrite_aof, :roles => :redis do |t|
+#  run "redis-cli bgrewriteaof"
+#end
+#
+desc "Download the production log file"
+task :get_dir do |t|
+  get "#{current_path}/log/", "#{Time.now}.log"
+end
+desc "Download the production log file"
+task :get_log do |t|
+  get "#{current_path}/log/production.log", "#{Time.now.strftime("%Y%m%d%H%M")}.production.log"
+end
