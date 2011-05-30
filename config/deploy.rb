@@ -11,7 +11,7 @@ server "localhost", :app, :db, :primary => true
 # END:host
 # START:ssh
 ssh_options[:port] = 2222
-ssh_options[:keys] = "/Library/Ruby/Gems/1.8/gems/vagrant-0.7.2/keys/vagrant"
+ssh_options[:keys] = "/Library/Ruby/Gems/1.8/gems/vagrant-0.7.4/keys/vagrant"
 # END:ssh
 # START:user
 set :user, "vagrant"
