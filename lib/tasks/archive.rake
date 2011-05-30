@@ -1,6 +1,7 @@
 namespace :archive do
   task :dump_old_records_to_sql => :environment do
     threshold = 6.months.ago.beginning_of_day
+    next if VestalVersions::Version.count(:conditions => ["created_at < ?", threshold]) == 0
     outdir = ENV['OUTDIR'] || Rails.root
     outfile = File.join(outdir, "#{threshold.strftime('%Y%m%d')}.sql")
     where = "created_at < '#{threshold.strftime("%Y-%m-%d")}'"
