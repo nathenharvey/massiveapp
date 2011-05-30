@@ -2,10 +2,10 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.5'
 
-gem 'sqlite3-ruby', :require => 'sqlite3'
-gem 'mysql2'
+gem 'mysql'
 
 gem 'gmetric'
+gem 'vestal_versions', :git => 'git://github.com/adamcooper/vestal_versions'
 
 # gem 'unicorn'
 
