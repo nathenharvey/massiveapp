@@ -1,7 +1,8 @@
 namespace :archive do
   task :dump_old_records_to_sql => :environment do
     threshold = 6.months.ago.beginning_of_day
-    output_filename = File.join(Rails.root, "#{threshold.strftime('%Y%m%d')}.sql")
+    outdir = ENV['OUTDIR'] || Rails.root
+    outfile = File.join(outdir, "#{threshold.strftime('%Y%m%d')}.sql")
     where = "created_at < '#{threshold.strftime("%Y-%m-%d")}'"
     config = ActiveRecord::Base.configurations[RAILS_ENV]
     command = "mysqldump "
@@ -13,7 +14,7 @@ namespace :archive do
     command << " --where \"#{where}\" "
     command << " #{config['database']} "
     command << " versions "
-    command << " > #{output_filename} "
+    command << " > #{outfile} "
     # Dump the records
     `#{command}`
     # Delete the records
