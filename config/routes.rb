@@ -1,4 +1,6 @@
 MassiveApp::Application.routes.draw do
+  resources :bookmarks
+
   resources :accounts
 
   # The priority is based upon order of creation:
