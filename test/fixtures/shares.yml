@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  bookmark_id: 1
+  shared_by: 1
+  shared_with: 1
+
+two:
+  bookmark_id: 1
+  shared_by: 1
+  shared_with: 1

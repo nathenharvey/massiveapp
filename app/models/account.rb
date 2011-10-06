@@ -2,6 +2,7 @@ class Account < ActiveRecord::Base
 
   versioned
 
-  validates_presence_of :login, :email
+  validates :login, :presence => true
+  validates :email, :presence => true
 
 end

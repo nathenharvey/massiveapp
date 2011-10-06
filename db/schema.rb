@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111003034708) do
+ActiveRecord::Schema.define(:version => 20111006235243) do
 
   create_table "accounts", :force => true do |t|
     t.string   "email"
@@ -25,6 +25,18 @@ ActiveRecord::Schema.define(:version => 20111003034708) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "shares", :force => true do |t|
+    t.integer  "bookmark_id", :null => false
+    t.integer  "shared_by",   :null => false
+    t.integer  "shared_with", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "shares", ["bookmark_id"], :name => "index_shares_on_bookmark_id"
+  add_index "shares", ["shared_by"], :name => "index_shares_on_shared_by"
+  add_index "shares", ["shared_with"], :name => "index_shares_on_shared_with"
 
   create_table "versions", :force => true do |t|
     t.integer  "versioned_id"
