@@ -2,16 +2,20 @@
 require 'bundler/capistrano'
 set :application, "massiveapp"
 # END:require_and_application
+# START:require_whenever
+set :whenever_command, "bundle exec whenever"
+require "whenever/capistrano"
+# END:require_whenever
 # START:scm
 set :scm, :git
-set :repository, "git://github.com/deployingrails/massiveapp.git"
+set :repository, "."
 # END:scm
 # START:host
 server "localhost", :app, :db, :primary => true
 # END:host
 # START:ssh
 ssh_options[:port] = 2222
-ssh_options[:keys] = "/Library/Ruby/Gems/1.8/gems/vagrant-0.7.4/keys/vagrant"
+ssh_options[:keys] = "/Library/Ruby/Gems/1.8/gems/vagrant-0.8.7/keys/vagrant"
 # END:ssh
 # START:user
 set :user, "vagrant"

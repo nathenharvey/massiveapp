@@ -2,6 +2,8 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.10'
 
+gem 'whenever', :require => false
+
 gem 'mysql'
 
 gem 'gmetric'
