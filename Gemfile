@@ -12,6 +12,4 @@ gem 'vestal_versions', :git => 'git://github.com/adamcooper/vestal_versions'
 # gem 'unicorn'
 
 group :development, :test do
-  #   gem 'webrat'
-  gem 'capistrano'
 end
